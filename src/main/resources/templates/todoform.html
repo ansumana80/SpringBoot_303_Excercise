@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>TO DO List Form</title>
+</head>
+<body>
+<form action="#"
+      th:action="@{/process}"
+      th:object="${todo}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    ID :<input type="text" th:field="*{id}" />
+    <span th:if="${#fields.hasErrors('id')}"
+          th:errors="*{id}"></span><br/>
+
+    Task Name :<input type="text" th:field="*{taskName}" />
+    <span th:if="${#fields.hasErrors('taskName')}"
+          th:errors="*{taskName}"></span><br/>
+
+    Due Date :<input type="number" th:field="*{dueDate}" />
+    <span th:if="${#fields.hasErrors('dueDate')}"
+          th:errors="*{dueDate}"></span><br/>
+
+    Priority :<input type="number" th:field="*{priority}" />
+    <span th:if="${#fields.hasErrors('priority')}"
+          th:errors="*{priority}"></span><br/>
+
+    <input type="submit" value="submit"/>
+
+
+
+
+
+</form>
+</body>
+</html>
